@@ -9,3 +9,5 @@ Fasda_v1 stands for **F**ingerprint-**a**ssisted **s**caffold **d**iversity **a*
 It is a <img src="https://streamlit.io/images/brand/streamlit-mark-color.svg" alt="Streamlit Logo" width="50"/>-based [Web Application](https://fasdav1web.streamlit.app/).
 
 Just upload a CSV file with SMILES string to explore Fingerprint-assisted scaffold diversity!
+
+Note: The uploaded CSV file must contain a column named 'Smiles'.
