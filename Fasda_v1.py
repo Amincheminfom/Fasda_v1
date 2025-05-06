@@ -105,8 +105,17 @@ if run_button and uploaded_file:
             for j, fp2 in enumerate(data['Fingerprint']):
                 similarity_matrix[i, j] = DataStructs.TanimotoSimilarity(fp1, fp2) if fp1 and fp2 else 0
 
-        reducer = PCA(n_components=2) if reduction_method == "PCA" else TSNE(n_components=2)
-        reduced_data = reducer.fit_transform(similarity_matrix)
+        #reducer = PCA(n_components=2) if reduction_method == "PCA" else TSNE(n_components=2)
+        #reduced_data = reducer.fit_transform(similarity_matrix)
+
+        if reduction_method == "PCA":
+          reducer = PCA(n_components=2)
+          reduced_data = reducer.fit_transform(similarity_matrix)
+        else:
+          distance_matrix = 1 - similarity_matrix
+          reducer = TSNE(n_components=2, metric='precomputed', init='random', random_state=42)
+          reduced_data = reducer.fit_transform(distance_matrix)
+        
 
         kmeans = KMeans(n_clusters=num_clusters, random_state=42)
         data['Cluster'] = kmeans.fit_predict(reduced_data)
