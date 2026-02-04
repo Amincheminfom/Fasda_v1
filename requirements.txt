@@ -1,7 +1,11 @@
-numpy==1.24.4
+numpy==1.26.4
 pandas==1.5.3
 rdkit-pypi==2022.9.5
-scikit-learn==1.2.2
-streamlit==1.24.0
+scikit-learn==1.6.0
+ipython==8.12.0    
+streamlit==1.41.1
 mordred==1.2.0
-matplotlib==3.7.1
+matplotlib==3.10.0
+shap==0.47.1
+Pillow==11.0.0
+
